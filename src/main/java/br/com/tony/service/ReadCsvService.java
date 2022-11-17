@@ -7,8 +7,10 @@ import java.io.FileReader;
 import java.util.List;
 
 public class ReadCsvService<T> {
+    
     private final String filePath;
     private final Class<? extends T> typeDto;
+    
     public ReadCsvService(String filePath, Class<? extends T> typeDto) {
         this.filePath = filePath;
         this.typeDto = typeDto;
