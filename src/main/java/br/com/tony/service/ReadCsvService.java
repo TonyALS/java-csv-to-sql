@@ -8,13 +8,15 @@ import java.util.List;
 
 public class ReadCsvService<T> {
     private final String filePath;
-    public ReadCsvService(String filePath) {
+    private final Class<? extends T> typeDto;
+    public ReadCsvService(String filePath, Class<? extends T> typeDto) {
         this.filePath = filePath;
+        this.typeDto = typeDto;
     }
 
-    public List<T> readAll(Class<? extends T> type) throws FileNotFoundException {
+    public List<T> readAll() throws FileNotFoundException {
         return new CsvToBeanBuilder<T>(new FileReader(filePath))
-                .withType(type)
+                .withType(typeDto)
                 .build()
                 .parse();
     }

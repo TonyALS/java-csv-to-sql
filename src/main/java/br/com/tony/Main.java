@@ -11,8 +11,8 @@ public class Main {
     public static void main(String[] args) {
         GenerateScriptService generateScriptService = new GenerateScriptService();
         try {
-            ReadCsvService<ExampleDTO> csvService = new ReadCsvService<>("dummy-csv.csv");
-            List<ExampleDTO> exampleDTOS = csvService.readAll(ExampleDTO.class);
+            ReadCsvService<ExampleDTO> csvService = new ReadCsvService<>("dummy-csv.csv", ExampleDTO.class);
+            List<ExampleDTO> exampleDTOS = csvService.readAll();
             generateScriptService.generate(exampleDTOS);
         } catch (IOException e) {
             throw new RuntimeException(e);
