@@ -13,7 +13,7 @@ public class Main {
         try {
             ReadCsvService<ExampleDTO> csvService = new ReadCsvService<>("dummy-csv.csv", ExampleDTO.class);
             List<ExampleDTO> exampleDTOS = csvService.readAll();
-            generateScriptService.generate(exampleDTOS);
+            generateScriptService.generate(exampleDTOS, 10000);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
