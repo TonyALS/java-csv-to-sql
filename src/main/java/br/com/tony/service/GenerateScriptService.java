@@ -24,7 +24,7 @@ public class GenerateScriptService {
 
                 try {
                     String insert = String.format("INSERT INTO public.csvfile (value, industrycode) values ('%s', '%s');",
-                            dto.getValue(), dto.getIndustryCodeANZSIC06());
+                            dto.getPeriod(), dto.getDataValue());
                     bufferedWriter.get().write(insert);
                     bufferedWriter.get().newLine();
                     count.getAndIncrement();
